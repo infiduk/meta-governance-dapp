@@ -365,7 +365,7 @@ const RmoveProposalForm = ({
           <Input
             name="votingAddr"
             onChange={handleChange}
-            className={"mt-5 " + (votingAddrErr ? "errInput" : "")}
+            className={"mt-5" + (votingAddrErr ? " errInput" : "")}
             disabled={loading}
           />
           <p className={votingAddrErr ? "errHint" : "errHint-hide"}>
@@ -377,7 +377,7 @@ const RmoveProposalForm = ({
           <Input.Search
             name="stakingAddr"
             onChange={handleChange}
-            className={"mt-5 " + (stakingAddrErr ? "errInput" : "")}
+            className={"mt-5" + (stakingAddrErr ? " errInput" : "")}
             disabled={loading}
             enterButton={
               <span>
@@ -553,7 +553,7 @@ const VotingDurationSetting = ({
                   value={votDurationMin}
                   onChange={handleChange}
                   className={
-                    "w-180 mg-rl-15 " + (votDurationErr ? "errInput" : "")
+                    "w-180 mg-rl-15" + (votDurationErr ? " errInput" : "")
                   }
                   disabled={loading}
                 />
@@ -571,7 +571,7 @@ const VotingDurationSetting = ({
                   value={votDurationMax}
                   onChange={handleChange}
                   className={
-                    "w-180 mg-rl-15 " + (votDurationErr ? "errInput" : "")
+                    "w-180 mg-rl-15" + (votDurationErr ? " errInput" : "")
                   }
                   disabled={loading}
                 />
@@ -580,7 +580,7 @@ const VotingDurationSetting = ({
             </div>
             <p
               className={
-                "mt-5 ml-40 " + (votDurationErr ? "errHint" : "errHint-hide")
+                "mt-5 ml-40" + (votDurationErr ? " errHint" : " errHint-hide")
               }
             >
               {`${
@@ -675,7 +675,7 @@ const AuthorityMemberStakingAmount = ({
                   value={AuthMemSkAmountMin}
                   onChange={handleChange}
                   className={
-                    "w-180 mg-rl-15 " + (AuthMemSkAmountErr ? "errInput" : "")
+                    "w-180 mg-rl-15" + (AuthMemSkAmountErr ? " errInput" : "")
                   }
                   disabled={loading}
                 />
@@ -692,7 +692,7 @@ const AuthorityMemberStakingAmount = ({
                   value={AuthMemSkAmountMax}
                   onChange={handleChange}
                   className={
-                    "w-180 mg-rl-15 " + (AuthMemSkAmountErr ? "errInput" : "")
+                    "w-180 mg-rl-15" + (AuthMemSkAmountErr ? " errInput" : "")
                   }
                   disabled={loading}
                 />
@@ -702,7 +702,7 @@ const AuthorityMemberStakingAmount = ({
           </div>
           <p
             className={
-              "mt-5 ml-40 " + (AuthMemSkAmountErr ? "errHint" : "errHint-hide")
+              "mt-5 ml-40" + (AuthMemSkAmountErr ? " errHint" : " errHint-hide")
             }
           >
             {`${
@@ -792,8 +792,8 @@ const BlockCreationTime = ({
                   value={newBlockCreation}
                   onChange={handleChange}
                   className={
-                    "w-180 mg-rl-15 ml-0 " +
-                    (blockCreationErr ? "errInput" : "")
+                    "w-180 mg-rl-15 ml-0" +
+                    (blockCreationErr ? " errInput" : "")
                   }
                   disabled={loading}
                 />
@@ -884,7 +884,7 @@ const BlockRewardAmount = ({
                   value={newBlockRewardAmount}
                   onChange={handleChange}
                   className={
-                    "w-180 mg-rl-15 ml-0 " + (blockRewardErr ? "errInput" : "")
+                    "w-180 mg-rl-15 ml-0" + (blockRewardErr ? " errInput" : "")
                   }
                   disabled={loading}
                 />
@@ -980,8 +980,8 @@ const BlockRewardDistributionMethod = ({
                     addonAfter="%"
                     onChange={handleChange}
                     className={
-                      "w-100 mg-rl-5 ml-0 " +
-                      (blockRewardDisMthErr ? "errInput" : "")
+                      "w-100 mg-rl-5 ml-0" +
+                      (blockRewardDisMthErr ? " errInput" : "")
                     }
                     disabled={loading}
                   />
@@ -996,7 +996,7 @@ const BlockRewardDistributionMethod = ({
                     addonAfter="%"
                     onChange={handleChange}
                     className={
-                      "mg-rl-5 " + (blockRewardDisMthErr ? "errInput" : "")
+                      "mg-rl-5" + (blockRewardDisMthErr ? " errInput" : "")
                     }
                     disabled={loading}
                   />
@@ -1011,7 +1011,7 @@ const BlockRewardDistributionMethod = ({
                     addonAfter="%"
                     onChange={handleChange}
                     className={
-                      "mg-rl-5 " + (blockRewardDisMthErr ? "errInput" : "")
+                      "mg-rl-5" + (blockRewardDisMthErr ? " errInput" : "")
                     }
                     disabled={loading}
                   />
@@ -1026,7 +1026,7 @@ const BlockRewardDistributionMethod = ({
                     addonAfter="%"
                     onChange={handleChange}
                     className={
-                      "mg-rl-5 " + (blockRewardDisMthErr ? "errInput" : "")
+                      "mg-rl-5" + (blockRewardDisMthErr ? " errInput" : "")
                     }
                     disabled={loading}
                   />
@@ -1041,8 +1041,8 @@ const BlockRewardDistributionMethod = ({
                     addonAfter="%"
                     onChange={handleChange}
                     className={
-                      "w-auto mg-rl-5 " +
-                      (blockRewardDisMthErr ? "errInput" : "")
+                      "w-auto mg-rl-5" +
+                      (blockRewardDisMthErr ? " errInput" : "")
                     }
                     disabled
                     readOnly
@@ -1135,8 +1135,8 @@ const ChangeOfMaxPriorityFeePerGas = ({
                   name="maxPriorityFeePerGas"
                   onChange={handleChange}
                   className={
-                    "w-180 mg-rl-15 ml-0 " +
-                    (maxPriorityFeePerGasErr ? "errInput" : "")
+                    "w-180 mg-rl-15 ml-0" +
+                    (maxPriorityFeePerGasErr ? " errInput" : "")
                   }
                   disabled={loading}
                 />
@@ -1224,7 +1224,7 @@ const GasLimitForm = ({
                   name="gasLimit"
                   onChange={handleChange}
                   className={
-                    "w-180 mg-rl-15 ml-0" + (gasLimitErr ? "errInput" : "")
+                    "w-180 mg-rl-15 ml-0" + (gasLimitErr ? " errInput" : "")
                   }
                   disabled={loading}
                 />
