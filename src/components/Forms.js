@@ -5,7 +5,6 @@ import "./style/style.css";
 import { shouldPass } from "../util";
 
 const { TextArea } = Input;
-const { Option } = Select;
 
 /* Add Authority Member */
 const AddProposalForm = ({
@@ -142,9 +141,9 @@ const AddProposalForm = ({
               style={{ width: 180 }}
               onChange={handleChange}
             >
-              <Select.Option value="votDuration_3">3</Select.Option>
-              <Select.Option value="votDuration_4">4</Select.Option>
-              <Select.Option value="votDuration_5">5</Select.Option>
+              <Select.Option value="3">3</Select.Option>
+              <Select.Option value="4">4</Select.Option>
+              <Select.Option value="5">5</Select.Option>
             </Select>
             <span>day</span>
           </Form.Item>
@@ -310,9 +309,9 @@ const ReplaceProposalForm = ({
               style={{ width: 180 }}
               onChange={handleChange}
             >
-              <Select.Option value="votDuration_3">3</Select.Option>
-              <Select.Option value="votDuration_4">4</Select.Option>
-              <Select.Option value="votDuration_5">5</Select.Option>
+              <Select.Option value="3">3</Select.Option>
+              <Select.Option value="4">4</Select.Option>
+              <Select.Option value="5">5</Select.Option>
             </Select>
             <span>day</span>
           </Form.Item>
@@ -502,9 +501,9 @@ const ChangeOfGovernanceContractAddressForm = ({
               style={{ width: 180 }}
               onChange={handleChange}
             >
-              <Option value="3">3</Option>
-              <Option value="4">4</Option>
-              <Option value="5">5</Option>
+              <Select.Option value="3">3</Select.Option>
+              <Select.Option value="4">4</Select.Option>
+              <Select.Option value="5">5</Select.Option>
             </Select>
             <span>day</span>
           </Form.Item>
@@ -624,9 +623,9 @@ const VotingDurationSetting = ({
               style={{ width: 180 }}
               onChange={handleChange}
             >
-              <Option value="3">3</Option>
-              <Option value="4">4</Option>
-              <Option value="5">5</Option>
+              <Select.Option value="3">3</Select.Option>
+              <Select.Option value="4">4</Select.Option>
+              <Select.Option value="5">5</Select.Option>
             </Select>
             <span>day</span>
           </Form.Item>
@@ -745,9 +744,9 @@ const AuthorityMemberStakingAmount = ({
               style={{ width: 180 }}
               onChange={handleChange}
             >
-              <Option value="3">3</Option>
-              <Option value="4">4</Option>
-              <Option value="5">5</Option>
+              <Select.Option value="3">3</Select.Option>
+              <Select.Option value="4">4</Select.Option>
+              <Select.Option value="5">5</Select.Option>
             </Select>
             <span>day</span>
           </Form.Item>
@@ -836,9 +835,9 @@ const BlockCreationTime = ({
               style={{ width: 180 }}
               onChange={handleChange}
             >
-              <Option value="3">3</Option>
-              <Option value="4">4</Option>
-              <Option value="5">5</Option>
+              <Select.Option value="3">3</Select.Option>
+              <Select.Option value="4">4</Select.Option>
+              <Select.Option value="5">5</Select.Option>
             </Select>
             <span>day</span>
           </Form.Item>
@@ -927,9 +926,9 @@ const BlockRewardAmount = ({
               style={{ width: 180 }}
               onChange={handleChange}
             >
-              <Option value="3">3</Option>
-              <Option value="4">4</Option>
-              <Option value="5">5</Option>
+              <Select.Option value="3">3</Select.Option>
+              <Select.Option value="4">4</Select.Option>
+              <Select.Option value="5">5</Select.Option>
             </Select>
             <span>day</span>
           </Form.Item>
@@ -1089,9 +1088,9 @@ const BlockRewardDistributionMethod = ({
               style={{ width: 180 }}
               onChange={handleChange}
             >
-              <Option value="3">3</Option>
-              <Option value="4">4</Option>
-              <Option value="5">5</Option>
+              <Select.Option value="3">3</Select.Option>
+              <Select.Option value="4">4</Select.Option>
+              <Select.Option value="5">5</Select.Option>
             </Select>
             <span>day</span>
           </Form.Item>
@@ -1179,9 +1178,9 @@ const ChangeOfMaxPriorityFeePerGas = ({
               style={{ width: 180 }}
               onChange={handleChange}
             >
-              <Option value="3">3</Option>
-              <Option value="4">4</Option>
-              <Option value="5">5</Option>
+              <Select.Option value="3">3</Select.Option>
+              <Select.Option value="4">4</Select.Option>
+              <Select.Option value="5">5</Select.Option>
             </Select>
             <span>day</span>
           </Form.Item>
@@ -1267,9 +1266,9 @@ const GasLimitForm = ({
               style={{ width: 180 }}
               onChange={handleChange}
             >
-              <Option value="3">3</Option>
-              <Option value="4">4</Option>
-              <Option value="5">5</Option>
+              <Select.Option value="3">3</Select.Option>
+              <Select.Option value="4">4</Select.Option>
+              <Select.Option value="5">5</Select.Option>
             </Select>
             <span>day</span>
           </Form.Item>
