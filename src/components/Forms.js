@@ -413,6 +413,7 @@ const RmoveProposalForm = ({
             <Input
               addonAfter="WEMIX"
               name="oldLockAmount"
+              value={oldLockAmount}
               defaultValue={stakingMin}
               onChange={handleChange}
               className={oldLockAmountErr ? "errInput" : ""}
