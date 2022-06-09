@@ -3,6 +3,7 @@ import { Button, Select, Icon } from "antd";
 
 import {
   AddProposalForm,
+  ReplaceProposalForm,
   RmoveProposalForm,
   ChangeOfGovernanceContractAddressForm,
   VotingDurationSetting,
@@ -12,8 +13,6 @@ import {
   BlockRewardDistributionMethod,
   ChangeOfMaxPriorityFeePerGas,
   GasLimitForm,
-  // ! legacy code -> remove <Replace Authority>
-  ReplaceProposalForm,
   // ! legacy code -> remove <Update Authority>
   UpdateProposalForm,
 } from "./Forms";
@@ -40,10 +39,10 @@ class ProposalForm extends React.Component {
     newNameErr: false,
     newNodeErr: false,
     newLockAmountErr: false,
+    oldVotingAddrErr: false,
+    oldStakingAddrErr: false,
 
     oldLockAmountErr: false,
-    oldAddrErr: false,
-    oldNodeErr: false,
     showLockAmount: "",
     // Change Of Governance Contract Address
     newGovAddrErr: false,
@@ -64,6 +63,8 @@ class ProposalForm extends React.Component {
     blockRewardDisMthErr: false,
     // ! legacy code -> remove <AddProposalForm><Replace Authority>
     newAddrErr: false,
+    oldAddrErr: false,
+    oldNodeErr: false,
   };
 
   constructor(props) {
@@ -115,7 +116,7 @@ class ProposalForm extends React.Component {
     this.data.formData[e.target.name] = e.target.value;
 
     switch (e.target.name) {
-      /* Add Authority Member */
+      // Add Authority Member
       case "votingAddr":
         this.setState({ votingAddrErr: !this.checkAddr(e.target.value) });
         break;
@@ -136,22 +137,20 @@ class ProposalForm extends React.Component {
       case "newNode":
         this.setState({ newNodeErr: !this.checkNode(e.target.value) });
         break;
-
-      // ! legacy code -> remove <AddProposalForm><Replace Authority><RmoveProposalForm>
-      case "newAddr":
-        this.setState({ newAddrErr: !this.checkAddr(e.target.value) });
+      case "oldVotingAddr":
+        this.setState({ oldVotingAddrErr: !this.checkAddr(e.target.value) });
+        break;
+      case "oldStakingAddr":
+        this.setState({ oldStakingAddrErr: !this.checkAddr(e.target.value) });
         break;
       case "oldLockAmount":
         if (!/^([0-9]*)$/.test(e.target.value))
           this.data.formData[e.target.name] = originStr;
         this.setState({ oldLockAmountErr: e.target.value === "" });
         break;
-      case "oldAddr":
-        this.setState({ oldAddrErr: !this.checkAddr(e.target.value) });
-        break;
-      case "oldNode":
-        this.setState({ oldNodeErr: !this.checkNode(e.target.value) });
-        break;
+      // case "oldNode":
+      //   this.setState({ oldNodeErr: !this.checkNode(e.target.value) });
+      //   break;
       // Voting Duration Setting
       case "votDurationMin":
         if (!/^([0-9]*)$/.test(e.target.value))
@@ -181,7 +180,7 @@ class ProposalForm extends React.Component {
           });
         }
         break;
-      //Authority Member Staking Amount
+      // Authority Member Staking Amount
       case "AuthMemSkAmountMin":
         if (!/^([0-9]*)$/.test(e.target.value))
           this.data.formData[e.target.name] = originStr;
@@ -258,7 +257,13 @@ class ProposalForm extends React.Component {
       case "gasLimit":
         this.setState({ gasLimitErr: !this.checkPrice(e.target.value) });
         break;
-
+      // ! legacy code -> remove <AddProposalForm><Replace Authority><RmoveProposalForm>
+      case "newAddr":
+        this.setState({ newAddrErr: !this.checkAddr(e.target.value) });
+        break;
+      case "oldAddr":
+        this.setState({ oldAddrErr: !this.checkAddr(e.target.value) });
+        break;
       default:
         break;
     }
@@ -650,6 +655,25 @@ class ProposalForm extends React.Component {
             handleChange={this.handleChange}
           />
         );
+      case "ReplaceAuthorityMember":
+        return (
+          <ReplaceProposalForm
+            netName={web3Instance.netName}
+            loading={this.props.loading}
+            stakingMin={this.props.stakingMin}
+            oldVotingAddrErr={this.state.oldVotingAddrErr}
+            oldStakingAddrErr={this.state.oldStakingAddrErr}
+            votingAddrErr={this.state.votingAddrErr}
+            stakingAddrErr={this.state.stakingAddrErr}
+            newNameErr={this.state.newNameErr}
+            newNodeErr={this.state.newNodeErr}
+            newLockAmountErr={this.state.newLockAmountErr}
+            newLockAmount={this.data.formData.newLockAmount}
+            oldNodeErr={this.state.oldNodeErr}
+            handleSubmit={this.handleSubmit}
+            handleChange={this.handleChange}
+          />
+        );
       case "RemoveAuthorityMember":
         return (
           <RmoveProposalForm
@@ -757,24 +781,6 @@ class ProposalForm extends React.Component {
             handleChange={this.handleChange}
           />
         );
-      // ! legacy code -> remove <Replace Authority>
-      case "ReplaceAuthorityMember":
-        return (
-          <ReplaceProposalForm
-            netName={web3Instance.netName}
-            loading={this.props.loading}
-            stakingMin={this.props.stakingMin}
-            oldAddrErr={this.state.oldAddrErr}
-            newAddrErr={this.state.newAddrErr}
-            newNameErr={this.state.newNameErr}
-            newNodeErr={this.state.newNodeErr}
-            newLockAmountErr={this.state.newLockAmountErr}
-            newLockAmount={this.data.formData.newLockAmount}
-            oldNodeErr={this.state.oldNodeErr}
-            handleSubmit={this.handleSubmit}
-            handleChange={this.handleChange}
-          />
-        );
       // ! legacy code -> remove <Update Authority>
       case "UpdateAuthority":
         return (
@@ -828,6 +834,9 @@ class ProposalForm extends React.Component {
                 <Select.Option value="AddAuthorityMember">
                   Add Authority Member
                 </Select.Option>
+                <Select.Option value="ReplaceAuthorityMember">
+                  Replace Authority Member
+                </Select.Option>
                 <Select.Option value="RemoveAuthorityMember">
                   Remove Authority Member
                 </Select.Option>
@@ -852,7 +861,9 @@ class ProposalForm extends React.Component {
                 <Select.Option value="ChangeOfMaxPriorityFeePerGas">
                   Change of MaxPriorityFeePerGas
                 </Select.Option>
-                <Select.Option value="GasLimit">Gas Limit</Select.Option>
+                <Select.Option value="GasLimit">
+                  Change of Gas Limit &amp; baseFee
+                </Select.Option>
               </Select>
             </div>
             {this.data.selectedVoteTopic !== "" && (

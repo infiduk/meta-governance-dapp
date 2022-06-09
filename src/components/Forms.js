@@ -11,10 +11,10 @@ const { Option } = Select;
 const AddProposalForm = ({
   netName,
   loading,
+  stakingMin,
   votingAddrErr,
   stakingAddrErr,
   newNameErr,
-  stakingMin,
   newLockAmount,
   newLockAmountErr,
   newNodeErr,
@@ -31,7 +31,7 @@ const AddProposalForm = ({
           <p className="subtitle mt-0">Voting Address</p>
           <Input
             name="votingAddr"
-            className={"mt-5" + (votingAddrErr ? "errInput" : "")}
+            className={"mt-5" + (votingAddrErr ? " errInput" : "")}
             disabled={loading}
             onChange={handleChange}
           />
@@ -43,7 +43,7 @@ const AddProposalForm = ({
           <p className="subtitle mt-0">Staking Address</p>
           <Input
             name="stakingAddr"
-            className={"mt-5" + (stakingAddrErr ? "errInput" : "")}
+            className={"mt-5" + (stakingAddrErr ? " errInput" : "")}
             disabled={loading}
             onChange={handleChange}
           />
@@ -128,7 +128,6 @@ const AddProposalForm = ({
           onChange={handleChange}
         />
       </Form.Item>
-      {/* // TODO set votDuration min max */}
       <div className="divider flex flex-end-vertical mt-16">
         <div className="flex-half flex-end-vertical flex-column mr-0">
           <Form.Item>
@@ -162,6 +161,174 @@ const AddProposalForm = ({
               votingAddrErr ||
               stakingAddrErr ||
               newNodeErr ||
+              newNameErr
+            }
+            loading={loading}
+          >
+            Submit
+          </Button>
+        </div>
+      </Form.Item>
+    </Form>
+  </div>
+);
+
+// Replace Authority Member
+const ReplaceProposalForm = ({
+  netName,
+  loading,
+  stakingMin,
+  oldVotingAddrErr,
+  oldStakingAddrErr,
+  votingAddrErr,
+  stakingAddrErr,
+  newNameErr,
+  newLockAmountErr,
+  newLockAmount,
+  handleSubmit = shouldPass(),
+  handleChange = shouldPass(),
+}) => (
+  <div className="proposalBody">
+    <Form onSubmit={handleSubmit}>
+      <p className="subtitle">
+        Old Authority Address <span className="required">*</span>
+      </p>
+      <div className="bor-box pd-rl-24 pd-tb-24 mt-16">
+        <Form.Item className="mt-0">
+          <p className="subtitle mt-0">Voting Address</p>
+          <Input
+            name="oldVotingAddr"
+            className={"mt-5" + (oldVotingAddrErr ? " errInput" : "")}
+            disabled={loading}
+            onChange={handleChange}
+          />
+          <p className={oldVotingAddrErr ? "errHint" : "errHint-hide"}>
+            Invalid Address
+          </p>
+        </Form.Item>
+        <Form.Item>
+          <p className="subtitle mt-0">Staking Address</p>
+          <Input
+            name="oldStakingAddr"
+            className={"mt-5" + (oldStakingAddrErr ? " errInput" : "")}
+            disabled={loading}
+            onChange={handleChange}
+          />
+          <p className={oldStakingAddrErr ? "errHint" : "errHint-hide"}>
+            Invaild Address
+          </p>
+        </Form.Item>
+      </div>
+      <p className="subtitle">
+        New Authority Address <span className="required">*</span>
+      </p>
+      <div className="bor-box pd-rl-24 pd-tb-24 mt-16">
+        <Form.Item className="mt-0">
+          <p className="subtitle mt-0">Voting Address</p>
+          <Input
+            name="votingAddr"
+            className={"mt-5" + (votingAddrErr ? " errInput" : "")}
+            disabled={loading}
+            onChange={handleChange}
+          />
+          <p className={votingAddrErr ? "errHint" : "errHint-hide"}>
+            Invalid Address
+          </p>
+        </Form.Item>
+        <Form.Item>
+          <p className="subtitle mt-0">Staking Address</p>
+          <Input
+            name="stakingAddr"
+            className={"mt-5" + (stakingAddrErr ? " errInput" : "")}
+            disabled={loading}
+            onChange={handleChange}
+          />
+          <p className={stakingAddrErr ? "errHint" : "errHint-hide"}>
+            Invaild Address
+          </p>
+        </Form.Item>
+      </div>
+      <div className="divider flex">
+        <div className="flex-full">
+          <p className="subtitle">
+            Node Name <span className="required">*</span>
+          </p>
+          <Form.Item>
+            <Input
+              name="newName"
+              onChange={handleChange}
+              className={newNameErr ? "errInput" : ""}
+              disabled={loading}
+            />
+            <p className={newNameErr ? "errHint" : "errHint-hide"}>
+              Invalid Name
+            </p>
+          </Form.Item>
+        </div>
+        <div className="flex-full">
+          <p className="subtitle">
+            Replace WEMIX Amount <span className="required">*</span>
+          </p>
+          <Form.Item>
+            <Input
+              addonAfter="WEMIX"
+              name="newLockAmount"
+              defaultValue={stakingMin}
+              value={newLockAmount || ""}
+              onChange={handleChange}
+              className={newLockAmountErr ? "errInput" : ""}
+              disabled={loading}
+            />
+            <p className={newLockAmountErr ? "errHint" : "errHint-hide"}>
+              Invalid Amount
+            </p>
+          </Form.Item>
+        </div>
+      </div>
+      <p className="subtitle">Description </p>
+      <Form.Item>
+        <TextArea
+          rows={4}
+          placeholder="Max. 256 bytes"
+          autoSize={{ minRows: 4, maxRows: 4 }}
+          name="memo"
+          onChange={handleChange}
+          disabled={loading}
+        />
+      </Form.Item>
+      <div className="divider flex flex-end-vertical mt-16">
+        <div className="flex-half flex-end-vertical flex-column mr-0">
+          <Form.Item>
+            <label className="subtitle mt-0 flex-align-self-center">
+              Voting Duration
+            </label>
+            <Select
+              defaultValue={3}
+              name="votDuration"
+              disabled={loading}
+              className="mg-rl-15"
+              style={{ width: 180 }}
+              onChange={handleChange}
+            >
+              <Select.Option value="votDuration_3">3</Select.Option>
+              <Select.Option value="votDuration_4">4</Select.Option>
+              <Select.Option value="votDuration_5">5</Select.Option>
+            </Select>
+            <span>day</span>
+          </Form.Item>
+        </div>
+      </div>
+      <Form.Item>
+        <div className="submitDiv flex">
+          <Button
+            className={"submit_Btn btn-fill-primary text-large " + netName}
+            htmlType="submit"
+            disabled={
+              newLockAmountErr ||
+              votingAddrErr ||
+              stakingAddrErr ||
+              oldVotingAddrErr ||
+              oldStakingAddrErr ||
               newNameErr
             }
             loading={loading}
@@ -247,7 +414,6 @@ const RmoveProposalForm = ({
               addonAfter="WEMIX"
               name="oldLockAmount"
               defaultValue={stakingMin}
-              value={oldLockAmount || ""}
               onChange={handleChange}
               className={oldLockAmountErr ? "errInput" : ""}
               disabled={loading}
@@ -1125,157 +1291,6 @@ const GasLimitForm = ({
   </div>
 );
 
-// ! legacy code -> remove <Replace Authority>
-const ReplaceProposalForm = ({
-  netName,
-  loading,
-  stakingMin,
-  oldAddrErr,
-  newAddrErr,
-  newNameErr,
-  newNodeErr,
-  newLockAmountErr,
-  newLockAmount,
-  oldNodeErr,
-  handleSubmit = shouldPass(),
-  handleChange = shouldPass(),
-}) => (
-  <div className="proposalBody">
-    <Form onSubmit={handleSubmit}>
-      <p className="subtitle">
-        Old Authority Address <span className="required">*</span>
-      </p>
-      <Form.Item>
-        <Input
-          name="oldAddr"
-          onChange={handleChange}
-          className={oldAddrErr ? "errInput" : ""}
-          disabled={loading}
-        />
-        <p className={oldAddrErr ? "errHint" : "errHint-hide"}>
-          Invalid Address
-        </p>
-      </Form.Item>
-      <p className="subtitle">
-        New Authority Address <span className="required">*</span>
-      </p>
-      <Form.Item>
-        <Input
-          name="newAddr"
-          onChange={handleChange}
-          className={newAddrErr ? "errInput" : ""}
-          disabled={loading}
-        />
-        <p className={newAddrErr ? "errHint" : "errHint-hide"}>
-          Invalid Address
-        </p>
-      </Form.Item>
-      <div className="divider flex">
-        <div className="flex-full">
-          <p className="subtitle">
-            Node Name <span className="required">*</span>
-          </p>
-          <Form.Item>
-            <Input
-              name="newName"
-              onChange={handleChange}
-              className={newNameErr ? "errInput" : ""}
-              disabled={loading}
-            />
-            <p className={newNameErr ? "errHint" : "errHint-hide"}>
-              Invalid Name
-            </p>
-          </Form.Item>
-        </div>
-        <div className="flex-full">
-          <p className="subtitle">
-            Replace WEMIX Amount <span className="required">*</span>
-          </p>
-          <Form.Item>
-            <Input
-              addonAfter="WEMIX"
-              name="newLockAmount"
-              defaultValue={stakingMin}
-              value={newLockAmount || ""}
-              onChange={handleChange}
-              className={newLockAmountErr ? "errInput" : ""}
-              disabled={loading}
-            />
-            <p className={newLockAmountErr ? "errHint" : "errHint-hide"}>
-              Invalid Amount
-            </p>
-          </Form.Item>
-        </div>
-      </div>
-      <p className="subtitle">
-        New Authority Node Description <span className="required">*</span>
-      </p>
-      <Form.Item>
-        <Input
-          name="newNode"
-          onChange={handleChange}
-          className={newNodeErr ? "errInput" : ""}
-          disabled={loading}
-          placeholder="6f8a80d1....66ad92a0@10.3.58.6:30303"
-        />
-        <p className={newNodeErr ? "errHint" : "errHint-hide"}>Invalid Node</p>
-      </Form.Item>
-      <div className="helpDescription">
-        <Icon type="question-circle" />
-        <p>
-          The hexadecimal node ID is encoded in the username portion of the URL,
-          separated from the host by an @ sign. The hostname can only be given
-          as an IP address, DNS domain names are not allowed. The port in the
-          host name section is the TCP listening port.
-        </p>
-      </div>
-      <p className="subtitle">
-        Old Authority Node Description <span className="required">*</span>
-      </p>
-      <Form.Item>
-        <Input
-          name="oldNode"
-          onChange={handleChange}
-          className={oldNodeErr ? "errInput" : ""}
-          disabled={loading}
-          placeholder="6f8a80d1....66ad92a0@10.3.58.6:30303"
-        />
-        <p className={oldNodeErr ? "errHint" : "errHint-hide"}>Invalid Node</p>
-      </Form.Item>
-      <p className="subtitle">Description </p>
-      <Form.Item>
-        <TextArea
-          rows={4}
-          placeholder="Max. 256 bytes"
-          autoSize={{ minRows: 4, maxRows: 4 }}
-          name="memo"
-          onChange={handleChange}
-          disabled={loading}
-        />
-      </Form.Item>
-      <Form.Item>
-        <div className="submitDiv flex">
-          <Button
-            className={"submit_Btn btn-fill-primary text-large " + netName}
-            htmlType="submit"
-            disabled={
-              newLockAmountErr ||
-              newAddrErr ||
-              newNodeErr ||
-              newNameErr ||
-              oldAddrErr ||
-              oldNodeErr
-            }
-            loading={loading}
-          >
-            Submit
-          </Button>
-        </div>
-      </Form.Item>
-    </Form>
-  </div>
-);
-
 // ! legacy code -> remove <Update Authority>
 const UpdateProposalForm = ({
   netName,
@@ -1351,6 +1366,7 @@ const UpdateProposalForm = ({
 
 export {
   AddProposalForm,
+  ReplaceProposalForm,
   RmoveProposalForm,
   ChangeOfGovernanceContractAddressForm,
   VotingDurationSetting,
@@ -1360,8 +1376,6 @@ export {
   BlockRewardDistributionMethod,
   ChangeOfMaxPriorityFeePerGas,
   GasLimitForm,
-  // ! legacy code -> remove <Replace Authority>
-  ReplaceProposalForm,
   // ! legacy code -> remove <Update Authority>
   UpdateProposalForm,
 };
