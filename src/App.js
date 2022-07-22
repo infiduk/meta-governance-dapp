@@ -502,7 +502,15 @@ class App extends React.Component {
     _link = false
   ) => {
     if (_err.includes("error:")) _err = _err.split("error:")[1];
-
+    // ethjs-query error message
+    else if (_err.includes('"message":"')) {
+      const _s = _err.split('"message":"')[1];
+      _err = `${_s.split('"')[0]}.`;
+      // metamask error message
+    } else if (_err.includes("message:'")) {
+      const _s = _err.split("message:'")[1];
+      _err = _s.split("'")[0];
+    }
     this.data.errTitle = _title;
     this.data.errContent = _err;
     if (_link)
