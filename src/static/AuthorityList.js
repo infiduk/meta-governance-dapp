@@ -41,14 +41,6 @@ export default {
   ],
   production: [
     {
-      logo: MetadiumLogo,
-      company: "Metadium Technology, Inc.",
-      link: "https://metadium.com/",
-      addr: "0x880a74d68b09418136c4442D1eA0f5cC72E5325A",
-      reward: "0x1180C92a0E50dCA73E666Da371F108A016be034f",
-      desc: "Metadium is an ecosystem built on a public identity blockchain designed to create a decentralized identity ecosystem with the real world introduction of Self-Sovereign Identity; the concept that individuals are owners of all aspects of their own identity in the offline and online world. Our vision is to create a free world through self-sovereign identity."
-    },
-    {
       logo: VeryWordsLogo,
       company: "VERYWORDS",
       link: "https://www.verywords.com/",
@@ -63,6 +55,14 @@ export default {
       addr: "0x880a74d68b09418136c4442D1eA0f5cC72E5325A", // METADIUM 것
       reward: "0x2Ef3D4CF5623FB1F0a6fA65217EbDA5986B48ad7",
       desc: "Superschool is an edtech company that operates a school administration management system and an online platform for student attendance and document records. To enhance the integrity and reliability of administrative information, Superschool integrates Metadium blockchain into its services. By joining as a node partner, the company aims to contribute to the expansion of blockchain-based educational certification ecosystems."
+    },
+    {
+      logo: FbgLogo,
+      company: "FBG Capital",
+      link: "https://www.fbg.capital/",
+      addr: "0x2Dc152f7c9CacDfFBfEfe5774Af1fDf14DF0C6F6",
+      reward: "0x50C2bf20984B0Edb9072ff29d1A7175471413b4A",
+      desc: "Founded in 2017, FBG Capital is an investment company dedicated to blockchain technology, and is a representative digital asset finance group that provides wealth management solutions using industry-leading expertise in research, product design, transaction execution, and risk management. FBG Capital will contribute to the establishment of Metadium's global partnership ecosystem."
     },
     {
       logo: MblockLogo,
@@ -97,32 +97,24 @@ export default {
       desc: "VistaLabs is a crypto investment firm headquartered in Korea with 30+ portfolio projects globally. Established in 2021, the company has been investing in prominent blockchain projects in various sectors such as DeFi, P2E games, Metaverse, etc. The company is rapidly expanding its investments by leveraging the expertise from the crypto industry and traditional financial market."
     },
     {
-      logo: FbgLogo,
-      company: "FBG Capital",
-      link: "https://www.fbg.capital/",
-      addr: "0x2Dc152f7c9CacDfFBfEfe5774Af1fDf14DF0C6F6",
-      reward: "0x50C2bf20984B0Edb9072ff29d1A7175471413b4A",
-      desc: "Founded in 2017, FBG Capital is an investment company dedicated to blockchain technology, and is a representative digital asset finance group that provides wealth management solutions using industry-leading expertise in research, product design, transaction execution, and risk management. FBG Capital will contribute to the establishment of Metadium's global partnership ecosystem."
-    },
-    {
       logo: RockxLogo,
       company: "RockX",
       link: "https://www.rockx.com/",
       addr: "0xa996EEFfe2d9d3CFFdCe5B7FC51C357DA7aBeA6D",
       reward: "0x9275cC6de34471f4a669e9dc0F90994Ad6702DA9",
       desc: "RockX is a leader in blockchain staking, leading the public blockchain. With a strong technical background and community driven operation, RockX provides secure validators to offer staking rewards for their cryptocurrency holders. RockX plans to build a Metadium staking pool in the future."
+    },
+    {
+      logo: MetadiumLogo,
+      company: "Metadium Technology, Inc.",
+      link: "https://metadium.com/",
+      addr: "0x880a74d68b09418136c4442D1eA0f5cC72E5325A",
+      reward: "0x1180C92a0E50dCA73E666Da371F108A016be034f",
+      desc: "Metadium is an ecosystem built on a public identity blockchain designed to create a decentralized identity ecosystem with the real world introduction of Self-Sovereign Identity; the concept that individuals are owners of all aspects of their own identity in the offline and online world. Our vision is to create a free world through self-sovereign identity."
     }
   ],
   testnet: [
     {
-      logo: MetadiumLogo,
-      company: "Metadium Technology, Inc.",
-      link: "https://metadium.com/",
-      addr: "0x880a74d68b09418136c4442D1eA0f5cC72E5325A",
-      reward: "0x1180C92a0E50dCA73E666Da371F108A016be034f",
-      desc: "Metadium is an ecosystem built on a public identity blockchain designed to create a decentralized identity ecosystem with the real world introduction of Self-Sovereign Identity; the concept that individuals are owners of all aspects of their own identity in the offline and online world. Our vision is to create a free world through self-sovereign identity."
-    },
-    {
       logo: VeryWordsLogo,
       company: "VERYWORDS",
       link: "https://www.verywords.com/",
@@ -137,6 +129,14 @@ export default {
       addr: "0x880a74d68b09418136c4442D1eA0f5cC72E5325A", // METADIUM 것
       reward: "0x2Ef3D4CF5623FB1F0a6fA65217EbDA5986B48ad7",
       desc: "Superschool is an edtech company that operates a school administration management system and an online platform for student attendance and document records. To enhance the integrity and reliability of administrative information, Superschool integrates Metadium blockchain into its services. By joining as a node partner, the company aims to contribute to the expansion of blockchain-based educational certification ecosystems."
+    },
+    {
+      logo: FbgLogo,
+      company: "FBG Capital",
+      link: "https://www.fbg.capital/",
+      addr: "0x2Dc152f7c9CacDfFBfEfe5774Af1fDf14DF0C6F6",
+      reward: "0x50C2bf20984B0Edb9072ff29d1A7175471413b4A",
+      desc: "Founded in 2017, FBG Capital is an investment company dedicated to blockchain technology, and is a representative digital asset finance group that provides wealth management solutions using industry-leading expertise in research, product design, transaction execution, and risk management. FBG Capital will contribute to the establishment of Metadium's global partnership ecosystem."
     },
     {
       logo: MblockLogo,
@@ -171,20 +171,20 @@ export default {
       desc: "VistaLabs is a crypto investment firm headquartered in Korea with 30+ portfolio projects globally. Established in 2021, the company has been investing in prominent blockchain projects in various sectors such as DeFi, P2E games, Metaverse, etc. The company is rapidly expanding its investments by leveraging the expertise from the crypto industry and traditional financial market."
     },
     {
-      logo: FbgLogo,
-      company: "FBG Capital",
-      link: "https://www.fbg.capital/",
-      addr: "0x2Dc152f7c9CacDfFBfEfe5774Af1fDf14DF0C6F6",
-      reward: "0x50C2bf20984B0Edb9072ff29d1A7175471413b4A",
-      desc: "Founded in 2017, FBG Capital is an investment company dedicated to blockchain technology, and is a representative digital asset finance group that provides wealth management solutions using industry-leading expertise in research, product design, transaction execution, and risk management. FBG Capital will contribute to the establishment of Metadium's global partnership ecosystem."
-    },
-    {
       logo: RockxLogo,
       company: "RockX",
       link: "https://www.rockx.com/",
       addr: "0xa996EEFfe2d9d3CFFdCe5B7FC51C357DA7aBeA6D",
       reward: "0x9275cC6de34471f4a669e9dc0F90994Ad6702DA9",
       desc: "RockX is a leader in blockchain staking, leading the public blockchain. With a strong technical background and community driven operation, RockX provides secure validators to offer staking rewards for their cryptocurrency holders. RockX plans to build a Metadium staking pool in the future."
+    },
+    {
+      logo: MetadiumLogo,
+      company: "Metadium Technology, Inc.",
+      link: "https://metadium.com/",
+      addr: "0x880a74d68b09418136c4442D1eA0f5cC72E5325A",
+      reward: "0x1180C92a0E50dCA73E666Da371F108A016be034f",
+      desc: "Metadium is an ecosystem built on a public identity blockchain designed to create a decentralized identity ecosystem with the real world introduction of Self-Sovereign Identity; the concept that individuals are owners of all aspects of their own identity in the offline and online world. Our vision is to create a free world through self-sovereign identity."
     }
   ]
 };

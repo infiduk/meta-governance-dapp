@@ -368,8 +368,8 @@ a {
     }
 
     // ! VERYWORDS, SuperSchool 이미지 사이즈 조정
-    &:nth-child(2),
-    &:nth-child(3) {
+    &:nth-child(1),
+    &:nth-child(2) {
       > ul > li:nth-child(1) {
         > img {
           height: 60px;
